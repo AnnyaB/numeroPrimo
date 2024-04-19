@@ -3,31 +3,38 @@
 int num = 0;
 int div = 0;
 int aux = 0;
+int op = 0;
 
-do
-{
-    Console.WriteLine("NÚMEROS PRIMOS");
-    Console.WriteLine("Digite um número positivo e maior que 1 e veja se ele é primo:");
-    num = int.Parse(Console.ReadLine());
-
-    if (num > 1)
+Console.WriteLine("- NÚMEROS PRIMOS - ");
+while (op == 0)
+    do
     {
-        for (int i = num; i > 0; i--)
+        Console.WriteLine("Digite um número positivo e maior que 1 e veja se ele é primo:");
+        num = int.Parse(Console.ReadLine());
+        aux = 0;
+
+        if (num > 1)
         {
-            div = num % i;
-            if (div == 0)
+            for (int i = num; i > 0; i--)
             {
-                aux++;
+                div = num % i;
+                if (div == 0)
+                {
+                    aux++;
+                }
+            }
+            if (aux == 2)
+            {
+                Console.WriteLine($"{num} é primo;\n---\nContinuar digite 0;\nParar digite 1" +
+                    $"\n---\n");
+                op = int.Parse(Console.ReadLine());
+            }
+            else
+            {
+                Console.WriteLine($"{num} não é primo;\n---\nContinuar digite 0;\nParar digite" +
+                    $" 1\n---\n");
+                op = int.Parse(Console.ReadLine());
             }
         }
-        if (aux == 2)
-        {
-            Console.WriteLine($"{num} é primo;");
-        }
-        else
-        {
-            Console.WriteLine($"{num} não é primo;");
-        }
     }
-}
-while (num <= 1);
+    while (num <= 1);
